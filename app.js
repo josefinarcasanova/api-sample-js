@@ -4,5 +4,6 @@ require("dotenv").config({path: path.resolve(__dirname,".env")}); //Get global v
 const Server = require("./models/server");
 
 // Initialize server
+// 20221219 - Sample commit
 const server = new Server();
 server.listen();
