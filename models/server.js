@@ -11,9 +11,9 @@ class Server {
         this.port = process.env.PORT || 8080;
 
         //Server paths
-        this.msgPath    = "/hello";         // Hello $Target!
-        this.authorPath = "/author";        // Contact Info
         this.indexPath  = "/";              // Index Page
+        this.helloPath  = "/hello";         // Hello $TARGET!
+        this.flightPath = "/flights";       // Search flights
         
         //Load middlewares & routes
         this.middlewares();
@@ -28,9 +28,9 @@ class Server {
     }
 
     routes() {
-        this.app.use(this.authorPath, require("../routes/author.routes"));
-        this.app.use(this.msgPath, require("../routes/msg.routes"));
         this.app.use(this.indexPath, require("../routes/index.routes"));
+        this.app.use(this.flightPath, require("../routes/flight.routes"));
+        this.app.use(this.helloPath, require("../routes/hello.routes"));
     }
 
     listen() {
